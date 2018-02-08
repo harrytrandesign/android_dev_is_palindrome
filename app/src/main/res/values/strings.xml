@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PalindromeChecker</string>
+    <string name="main_title">Check a palindrome</string>
+    <string name="is_palindrome">Yes</string>
+    <string name="not_palindrome">No</string>
+    <string name="enter_button">Enter</string>
+    <string name="edittext_word_hint">Enter A Word</string>
+</resources>
