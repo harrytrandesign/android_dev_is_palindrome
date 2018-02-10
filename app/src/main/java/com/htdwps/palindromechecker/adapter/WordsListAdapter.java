@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.htdwps.palindromechecker.R;
+import com.htdwps.palindromechecker.utils.WordListContract;
 
 
 public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.WordViewHolder> {
@@ -35,6 +36,27 @@ public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.Word
     @Override
     public void onBindViewHolder(WordViewHolder holder, int position) {
 
+        if (!mCursor.moveToPosition(position)) {
+            return;
+        }
+
+        String word = mCursor.getString(mCursor.getColumnIndex(WordListContract.WordSearchEntry.COLUMN_WORD_NAME));
+        int isPalindrome = mCursor.getInt(mCursor.getColumnIndex(WordListContract.WordSearchEntry.COLUMN_PALINDROME));
+
+        holder.wordTextView.setText(word);
+
+        switch (isPalindrome) {
+
+            case 0:
+                holder.resultTextView.setText(R.string.palindrome_indicator_false);
+                break;
+
+            case 1:
+                holder.resultTextView.setText(R.string.palindrome_indicator_true);
+                break;
+
+        }
+
     }
 
     @Override
@@ -43,6 +65,20 @@ public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.Word
         return mCursor.getCount();
 
     }
+
+    // Helps to switch the cursor after a new data inserted into the database, triggers the refresh of the recyclerview too
+    public void swapCursor(Cursor newCursor) {
+
+        // Always close the previous mCursor first
+        if (mCursor != null) mCursor.close();
+        mCursor = newCursor;
+        if (newCursor != null) {
+            // Force the RecyclerView to refresh
+            this.notifyDataSetChanged();
+        }
+
+    }
+
 
     class WordViewHolder extends RecyclerView.ViewHolder {
 

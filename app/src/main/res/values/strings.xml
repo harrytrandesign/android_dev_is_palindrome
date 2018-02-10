@@ -3,14 +3,15 @@
 
     <string name="main_title">Check a palindrome algorithm</string>
 
-    <string name="is_palindrome">Yes</string>
-    <string name="not_palindrome">No</string>
+    <string name="palindrome_indicator_true">True</string>
+    <string name="palindrome_indicator_false">False</string>
     <string name="palindrome_true"> is a Palindrome.</string>
     <string name="palindrome_false"> is not a Palindrome.</string>
 
     <string name="enter_button">Enter</string>
     <string name="edittext_word_hint">Enter A Word</string>
-    
+
+    <!-- Test information for UI test -->
     <string name="item_text_placeholder">Test String</string>
     <string name="item_binary_placeholder">0||1</string>
 </resources>

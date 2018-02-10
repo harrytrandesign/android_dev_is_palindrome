@@ -27,15 +27,15 @@ public class TestFakeData {
         contentValues.put(WordSearchEntry.COLUMN_PALINDROME, 0);
         list.add(contentValues);
 
-//        contentValues = new ContentValues();
-//        contentValues.put(WordSearchEntry.COLUMN_WORD_NAME, "racecar");
-//        contentValues.put(WordSearchEntry.COLUMN_PALINDROME, 1);
-//        list.add(contentValues);
-//
-//        contentValues = new ContentValues();
-//        contentValues.put(WordSearchEntry.COLUMN_WORD_NAME, "Ace");
-//        contentValues.put(WordSearchEntry.COLUMN_PALINDROME, 0);
-//        list.add(contentValues);
+        contentValues = new ContentValues();
+        contentValues.put(WordSearchEntry.COLUMN_WORD_NAME, "racecar");
+        contentValues.put(WordSearchEntry.COLUMN_PALINDROME, 1);
+        list.add(contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(WordSearchEntry.COLUMN_WORD_NAME, "Ace");
+        contentValues.put(WordSearchEntry.COLUMN_PALINDROME, 0);
+        list.add(contentValues);
 
         // Insert guest into the database
         try {
