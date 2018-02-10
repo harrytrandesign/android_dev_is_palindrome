@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
         userInput = findViewById(R.id.user_input);
         resultText = findViewById(R.id.textview_result);
@@ -39,9 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (userWord.length() > 0) {
 
-                    boolean result = CheckPalindrome.isWordGivenPalindrome(userWord);
+                    boolean result = CheckPalindrome.reverseCheckWord(userWord);
 
-                    resultText.setText(new StringBuilder().append(userWord).append(Answer.result(result)).toString());
+                    resultText.setText(new StringBuilder().append(userWord).append(" ").append(Answer.result(MainActivity.this, result)).toString());
 
                     userInput.getText().clear();
 

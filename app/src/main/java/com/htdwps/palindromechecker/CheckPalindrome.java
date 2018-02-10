@@ -1,10 +1,28 @@
 package com.htdwps.palindromechecker;
 
+import java.util.Arrays;
+
 /**
  * Created by HTDWPS on 2/7/18.
  */
 
 class CheckPalindrome {
+
+    static boolean reverseCheckWord(String string) {
+        int length = string.replace(" ", "").length();
+
+        // As Char[] Array
+        char[] fwdChar = string.replace(" ", "").toCharArray();
+        char[] bwdChar = new char[length];
+
+        int pointer = 0;
+        for (int i = length - 1; i >= 0; i--) {
+            bwdChar[pointer] = fwdChar[i];
+            pointer++;
+        }
+
+        return Arrays.equals(fwdChar, bwdChar);
+    }
 
     static boolean isWordGivenPalindrome(String word) {
 

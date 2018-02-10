@@ -1,12 +1,16 @@
 package com.htdwps.palindromechecker;
 
+import android.content.Context;
+
 /**
  * Created by HTDWPS on 2/7/18.
  */
 
 public class Answer {
 
-    public static String result(Boolean bool) {
+    public static String result(Context context, Boolean bool) {
+
+        Context mContext = context;
 
         String feedback = Boolean.toString(bool);
 
@@ -16,14 +20,14 @@ public class Answer {
 
             case "true":
 
-                answer = " is a Palindrome.";
+                answer = mContext.getResources().getString(R.string.palindrome_true);
 
                 break;
 
 
             case "false":
 
-                answer = " is not a Palindrome.";
+                answer = mContext.getResources().getString(R.string.palindrome_false);
 
                 break;
 
