@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.htdwps.palindromechecker.adapter.WordsListAdapter;
 import com.htdwps.palindromechecker.utils.PalindromeDbHelper;
@@ -47,13 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDatabase = databaseHelper.getWritableDatabase();
 
         // Insert test data to check that adapter is connected
+        // Test data no longer needed, after database test written worked
         TestFakeData.insertStarterData(mDatabase);
 
         Cursor cursor = getAllGuests();
 
         mAdapter = new WordsListAdapter(this, cursor.getCount());
-
-        Toast.makeText(this, "Count " + cursor.getCount(), Toast.LENGTH_SHORT).show();
 
         wordRecyclerView.setAdapter(mAdapter);
 
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private Cursor getAllGuests() {
-        // COMPLETED (6) Inside, call query on mDb passing in the table name and projection String [] order by COLUMN_TIMESTAMP
+        // COMPLETED (6) Inside, call query on mDatabase passing in the table name and projection String [] order by COLUMN_TIMESTAMP
         return mDatabase.query(
                 WordListContract.WordSearchEntry.TABLE_NAME,
                 null,

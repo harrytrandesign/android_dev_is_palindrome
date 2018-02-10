@@ -1,6 +1,7 @@
 package com.htdwps.palindromechecker.adapter;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +14,11 @@ import com.htdwps.palindromechecker.R;
 public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.WordViewHolder> {
 
     private Context mContext;
-    private int mCount;
+    private Cursor mCursor;
 
-    public WordsListAdapter(Context mContext, int mCount) {
-
+    public WordsListAdapter(Context mContext, Cursor mCursor) {
         this.mContext = mContext;
-        this.mCount = mCount;
-
+        this.mCursor = mCursor;
     }
 
     @Override
@@ -41,7 +40,7 @@ public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.Word
     @Override
     public int getItemCount() {
 
-        return mCount;
+        return mCursor.getCount();
 
     }
 
