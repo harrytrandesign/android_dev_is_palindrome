@@ -6,10 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.htdwps.palindromechecker.utils.WordListContract.*;
 
-/**
- * Created by HTDWPS on 2/10/18.
- */
-
 public class PalindromeDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "palindrome_words.db";
@@ -33,11 +29,11 @@ public class PalindromeDbHelper extends SQLiteOpenHelper {
         // COLUMN_TIMESTAMP: Timestamp
         final String SQL_CREATE_WORDLIST_TABLE = "CREATE TABLE "
                 + WordSearchEntry.TABLE_NAME + " ("
-                + WordSearchEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + WordSearchEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + WordSearchEntry.COLUMN_WORD_NAME + " TEXT NOT NULL, "
                 + WordSearchEntry.COLUMN_PALINDROME + " INTEGER NOT NULL, "
                 + WordSearchEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
-                + ");";
+                + "); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_WORDLIST_TABLE);
 

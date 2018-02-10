@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="12dp"
+    android:paddingEnd="6dp"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:paddingStart="6dp"
+    android:paddingTop="12dp">
+
+    <TextView
+        android:id="@+id/textview_word_checked"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/item_text_placeholder"
+        tools:text="Test Word"/>
+
+    <TextView
+        android:id="@+id/textview_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_binary_placeholder"
+        android:textAllCaps="true"
+        android:textColor="@color/result_true"
+        android:textStyle="bold"
+        tools:text="True"/>
+
+</LinearLayout>
