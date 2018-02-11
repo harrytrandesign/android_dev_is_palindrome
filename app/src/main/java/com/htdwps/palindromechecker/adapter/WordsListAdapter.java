@@ -49,10 +49,12 @@ public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.Word
 
             case 0:
                 holder.resultTextView.setText(R.string.palindrome_indicator_false);
+                holder.resultTextView.setTextColor(mContext.getResources().getColor(R.color.result_false));
                 break;
 
             case 1:
                 holder.resultTextView.setText(R.string.palindrome_indicator_true);
+                holder.resultTextView.setTextColor(mContext.getResources().getColor(R.color.result_true));
                 break;
 
         }

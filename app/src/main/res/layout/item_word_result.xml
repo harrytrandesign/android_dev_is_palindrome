@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/item_selector_state_color"
     android:orientation="horizontal"
     android:paddingBottom="12dp"
     android:paddingEnd="6dp"

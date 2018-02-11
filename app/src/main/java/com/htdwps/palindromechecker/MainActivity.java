@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.htdwps.palindromechecker.adapter.WordsListAdapter;
+import com.htdwps.palindromechecker.design.RecyclerDividerDecoration;
 import com.htdwps.palindromechecker.utils.PalindromeDbHelper;
 import com.htdwps.palindromechecker.utils.WordListContract;
 
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resultText = findViewById(R.id.textview_result);
         submitButton = findViewById(R.id.submit_button);
         wordRecyclerView = findViewById(R.id.recyclerview_old_words);
+        wordRecyclerView.addItemDecoration(new RecyclerDividerDecoration(this));
 
     }
 
