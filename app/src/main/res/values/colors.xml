@@ -5,6 +5,7 @@
     <color name="colorPrimaryLight">#C5CAE9</color>
     <color name="colorAccent">#4CAF50</color>
 
+    <color name="list_text_color">#212121</color>
     <color name="divider_line">#E8EAF6</color>
     <color name="result_true">#66BB6A</color>
     <color name="result_false">#ef5350</color>

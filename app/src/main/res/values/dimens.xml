@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="list_text_size">16sp</dimen>
+    <dimen name="result_icon_size">24dp</dimen>
     <dimen name="round_corner_radius">25dp</dimen>
     <dimen name="divider_line_size">1px</dimen>
 </resources>

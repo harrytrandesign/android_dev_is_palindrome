@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.htdwps.palindromechecker.R;
@@ -48,13 +49,15 @@ public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.Word
         switch (isPalindrome) {
 
             case 0:
-                holder.resultTextView.setText(R.string.palindrome_indicator_false);
-                holder.resultTextView.setTextColor(mContext.getResources().getColor(R.color.result_false));
+                holder.resultImageView.setImageResource(R.drawable.x_mark_circle);
+//                holder.resultTextView.setText(R.string.palindrome_indicator_false);
+//                holder.resultTextView.setTextColor(mContext.getResources().getColor(R.color.result_false));
                 break;
 
             case 1:
-                holder.resultTextView.setText(R.string.palindrome_indicator_true);
-                holder.resultTextView.setTextColor(mContext.getResources().getColor(R.color.result_true));
+                holder.resultImageView.setImageResource(R.drawable.c_mark_circle);
+//                holder.resultTextView.setText(R.string.palindrome_indicator_true);
+//                holder.resultTextView.setTextColor(mContext.getResources().getColor(R.color.result_true));
                 break;
 
         }
@@ -86,12 +89,14 @@ public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.Word
 
         TextView wordTextView;
         TextView resultTextView;
+        ImageView resultImageView;
 
         public WordViewHolder(View itemView) {
             super(itemView);
 
             wordTextView = itemView.findViewById(R.id.textview_word_checked);
             resultTextView = itemView.findViewById(R.id.textview_result);
+            resultImageView = itemView.findViewById(R.id.imageview_result);
 
         }
     }
