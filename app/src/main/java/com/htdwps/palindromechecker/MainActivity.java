@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            getSupportActionBar().hide();
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().hide();
+            }
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -127,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (userWord.length() > 0) {
 
-                    int value = -1;
+                    int value;
 
                     boolean result = CheckPalindrome.reverseCheckWord(userWord);
 
