@@ -43,8 +43,10 @@ public class WordsListAdapter extends RecyclerView.Adapter<WordsListAdapter.Word
 
         String word = mCursor.getString(mCursor.getColumnIndex(WordListContract.WordSearchEntry.COLUMN_WORD_NAME));
         int isPalindrome = mCursor.getInt(mCursor.getColumnIndex(WordListContract.WordSearchEntry.COLUMN_PALINDROME));
+        long id = mCursor.getLong(mCursor.getColumnIndex(WordListContract.WordSearchEntry._ID));
 
         holder.wordTextView.setText(word);
+        holder.itemView.setTag(id);
 
         switch (isPalindrome) {
 

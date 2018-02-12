@@ -2,16 +2,14 @@
 <selector
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<!--
-     TODO: the touch state isn't showing up yet. The default state color does show up as white (black if changed to black)
-     I am guessing that I might need to add a touch listener to the Recyclerview before the touch states show up
--->
+<!-- The touch state isn't showing up yet. The default state color does show up as white (black if changed to black)
+     I am guessing that I might need to add a touch listener to the Recyclerview before the touch states show up -->
     <!-- The color shown on various touch states of an item in the Recyclerview -->
     <item android:drawable="@color/colorPrimaryLight" android:state_pressed="true"/>
     <item android:drawable="@color/colorPrimaryLight" android:state_activated="true"/>
     <item android:drawable="@color/colorPrimaryLight" android:state_selected="true"/>
 
     <!-- The default color of the item when it's not pressed -->
-    <item android:drawable="@android:color/white"/>
+    <item android:drawable="@color/white_background"/>
 
 </selector>

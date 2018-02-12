@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,6 +61,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         wordRecyclerView.setAdapter(mAdapter);
 
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                long id = (long) viewHolder.itemView.getTag();
+                removeGuest(id);
+                mAdapter.swapCursor(getAllWordsList());
+            }
+        }).attachToRecyclerView(wordRecyclerView);
+
         submitButton.setOnClickListener(this);
 
     }
@@ -80,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ContentValues contentValues = new ContentValues();
         contentValues.put(WordListContract.WordSearchEntry.COLUMN_WORD_NAME, name);
         contentValues.put(WordListContract.WordSearchEntry.COLUMN_PALINDROME, isPalindrome);
+
         return mDatabase.insert(WordListContract.WordSearchEntry.TABLE_NAME, null, contentValues);
 
     }
@@ -95,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 null,
                 WordListContract.WordSearchEntry.COLUMN_TIMESTAMP
         );
+    }
+
+    private boolean removeGuest(long id) {
+        return mDatabase.delete(WordListContract.WordSearchEntry.TABLE_NAME, WordListContract.WordSearchEntry._ID + "=" + id, null) > 0;
     }
 
     @Override
