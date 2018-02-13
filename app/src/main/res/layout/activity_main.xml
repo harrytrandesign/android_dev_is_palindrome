@@ -10,64 +10,32 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:gravity="center_horizontal"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:text="@string/main_title"
-        android:textAllCaps="true"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"/>
+        style="@style/textview_title_header"
+        android:text="@string/main_title"/>
 
     <EditText
         android:id="@+id/user_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/edittext_user_input"
         android:hint="@string/edittext_word_hint"
-        android:includeFontPadding="true"
         android:inputType="text"
-        android:maxLength="50"
-        android:paddingBottom="12dp"
-        android:paddingEnd="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingStart="16dp"
-        android:paddingTop="6dp"/>
+        android:maxLength="50"/>
 
     <TextView
         android:id="@+id/textview_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingBottom="6dp"
-        android:paddingTop="6dp"
-        android:textAllCaps="true"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="Yes"/>
+        style="@style/textview_result_view"
+        android:text="@string/textview_result"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_old_words"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingBottom="@dimen/more_margin"
+        android:paddingTop="@dimen/more_margin"/>
 
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/submit_button_round_corners"
+        style="@style/button_submit_input"
         android:text="@string/enter_button"
         android:textColor="@android:color/white"/>
 

@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="list_text_size">16sp</dimen>
+
+    <!-- Padding || Margins -->
+    <dimen name="standard_margin">6dp</dimen>
+    <dimen name="medium_margin">12dp</dimen>
+    <dimen name="more_margin">18dp</dimen>
+
+    <!-- UI Design-->
+    <dimen name="divider_line_size">1px</dimen>
     <dimen name="result_icon_size">24dp</dimen>
     <dimen name="round_corner_radius">25dp</dimen>
-    <dimen name="divider_line_size">1px</dimen>
+    <dimen name="button_side_padding">36dp</dimen>
+
+    <!-- Font sizes -->
+    <dimen name="list_text_size">16sp</dimen>
+    <dimen name="larger_header_size">24sp</dimen>
+
 </resources>
