@@ -9,7 +9,8 @@
     <string name="palindrome_false"> is not a Palindrome.</string>
 
     <string name="enter_button">Enter</string>
-    <string name="edittext_word_hint">Enter A Word</string>
+    <string name="edittext_word_hint">Enter a word</string>
+    <string name="textview_history">Word History</string>
     <string name="textview_result">Ready</string>
 
     <!-- Test information for UI test -->

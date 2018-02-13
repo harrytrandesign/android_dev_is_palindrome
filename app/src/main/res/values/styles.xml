@@ -20,6 +20,18 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="textview_history_header">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingEnd">@dimen/standard_margin</item>
+        <item name="android:paddingLeft">@dimen/standard_margin</item>
+        <item name="android:paddingRight">@dimen/standard_margin</item>
+        <item name="android:paddingStart">@dimen/standard_margin</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="textview_result_view">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -42,6 +54,14 @@
         <item name="android:paddingRight">@dimen/more_margin</item>
         <item name="android:paddingStart">@dimen/more_margin</item>
         <item name="android:paddingTop">@dimen/more_margin</item>
+    </style>
+
+    <style name="recyclerview_list">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingBottom">@dimen/more_margin</item>
+        <item name="android:paddingTop">@dimen/standard_margin</item>
     </style>
 
     <style name="button_submit_input">

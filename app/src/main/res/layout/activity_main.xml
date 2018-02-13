@@ -25,13 +25,14 @@
         style="@style/textview_result_view"
         android:text="@string/textview_result"/>
 
+    <TextView
+        style="@style/textview_history_header"
+        android:text="@string/textview_history"/>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_old_words"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingBottom="@dimen/more_margin"
-        android:paddingTop="@dimen/more_margin"/>
+        style="@style/recyclerview_list"/>
 
     <Button
         android:id="@+id/submit_button"
