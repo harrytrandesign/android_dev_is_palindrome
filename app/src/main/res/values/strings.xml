@@ -10,7 +10,7 @@
 
     <string name="enter_button">Enter</string>
     <string name="edittext_word_hint">Enter A Word</string>
-    <string name="textview_result">Palindrome Check</string>
+    <string name="textview_result">Ready</string>
 
     <!-- Test information for UI test -->
     <string name="item_text_placeholder">Test String</string>
