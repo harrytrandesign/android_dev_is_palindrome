@@ -12,7 +12,8 @@ The application utilizes a RecyclerView and SQLite Database, words that are ente
 
 Everything was done inside Android Studio, written in Java, and UI Designs were created by myself. The application follows a Material Design style guide.
 
-Feedback and comments are welcomed!
+Feedback and comments are welcomed.
+
 Harry Tran
 
 
