@@ -11,6 +11,7 @@
     <dimen name="result_icon_size">24dp</dimen>
     <dimen name="round_corner_radius">25dp</dimen>
     <dimen name="button_side_padding">36dp</dimen>
+    <dimen name="button_image_icon">48dp</dimen>
 
     <!-- Font sizes -->
     <dimen name="small_text">10sp</dimen>

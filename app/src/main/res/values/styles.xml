@@ -39,14 +39,15 @@
         <item name="android:paddingBottom">@dimen/standard_margin</item>
         <item name="android:paddingTop">@dimen/standard_margin</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/result_true</item>
         <item name="android:textSize">@dimen/larger_header_size</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="edittext_user_input">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:includeFontPadding">true</item>
         <item name="android:paddingBottom">@dimen/medium_margin</item>
         <item name="android:paddingEnd">@dimen/more_margin</item>
@@ -65,11 +66,12 @@
     </style>
 
     <style name="button_submit_input">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/button_image_icon</item>
+        <item name="android:layout_height">@dimen/button_image_icon</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_marginBottom">@dimen/medium_margin</item>
         <item name="android:layout_marginTop">@dimen/standard_margin</item>
+        <item name="android:layout_marginLeft">@dimen/standard_margin</item>
         <item name="android:background">@drawable/submit_button_round_corners</item>
         <item name="android:paddingEnd">@dimen/button_side_padding</item>
         <item name="android:paddingLeft">@dimen/button_side_padding</item>

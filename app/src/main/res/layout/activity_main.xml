@@ -13,13 +13,6 @@
         style="@style/textview_title_header"
         android:text="@string/main_title"/>
 
-    <EditText
-        android:id="@+id/user_input"
-        style="@style/edittext_user_input"
-        android:hint="@string/edittext_word_hint"
-        android:inputType="text"
-        android:maxLength="50"/>
-
     <TextView
         android:id="@+id/textview_result"
         style="@style/textview_result_view"
@@ -34,10 +27,30 @@
         android:id="@+id/recyclerview_old_words"
         style="@style/recyclerview_list"/>
 
-    <Button
-        android:id="@+id/submit_button"
-        style="@style/button_submit_input"
-        android:text="@string/enter_button"
-        android:textColor="@android:color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:layout_marginRight="@dimen/standard_margin"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/user_input"
+            style="@style/edittext_user_input"
+            android:hint="@string/edittext_word_hint"
+            android:inputType="text"
+            android:maxLength="50"
+            android:singleLine="true"/>
+
+        <ImageButton
+            android:id="@+id/submit_button"
+            style="@style/button_submit_input"
+            android:imeOptions="actionDone"
+            android:scaleType="centerInside"
+            android:scaleX="-1"
+            android:scaleY="-1"
+            android:src="@drawable/check_mark"
+            android:tint="@android:color/white"/>
+    </LinearLayout>
 
 </LinearLayout>

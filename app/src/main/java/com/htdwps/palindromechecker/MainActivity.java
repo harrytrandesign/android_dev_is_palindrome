@@ -1,6 +1,7 @@
 package com.htdwps.palindromechecker;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -8,9 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.htdwps.palindromechecker.adapter.WordsListAdapter;
@@ -18,7 +22,7 @@ import com.htdwps.palindromechecker.design.RecyclerDividerDecoration;
 import com.htdwps.palindromechecker.utils.PalindromeDbHelper;
 import com.htdwps.palindromechecker.utils.WordListContract;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, EditText.OnEditorActionListener {
 
     // Declare a SQLiteDatabase and the DatabaseHelper
     private SQLiteDatabase mDatabase;
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText userInput;
     private TextView resultText;
-    private Button submitButton;
+    private ImageButton submitButton;
     private RecyclerView wordRecyclerView;
 
     @Override
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }).attachToRecyclerView(wordRecyclerView);
 
+        userInput.setOnEditorActionListener(this);
         submitButton.setOnClickListener(this);
 
     }
@@ -119,48 +124,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return mDatabase.delete(WordListContract.WordSearchEntry.TABLE_NAME, WordListContract.WordSearchEntry._ID + "=" + id, null) > 0;
     }
 
+    private void checkThisWord(View view) {
+
+        String userWord = userInput.getText().toString();
+
+        if (userWord.length() > 0) {
+
+            int value;
+
+            boolean result = CheckPalindrome.reverseCheckWord(userWord);
+
+            if (result) {
+
+                value = 1;
+                resultText.setTextColor(getResources().getColor(R.color.result_true));
+
+            } else {
+
+                value = 0;
+                resultText.setTextColor(getResources().getColor(R.color.result_false));
+
+            }
+
+            // Add the new word and it's result value into the database
+            addNewWord(userWord, value);
+
+            // Refresh the Cursor with new value to update the recyclerview list
+            mAdapter.swapCursor(getAllWordsList());
+            wordRecyclerView.smoothScrollToPosition(getAllWordsList().getCount());
+
+            // Show user the result
+            resultText.setText(new StringBuilder().append(userWord).append(" ").append(Answer.result(MainActivity.this, result)).toString());
+
+            // Clear the UI such as edittext
+            userInput.getText().clear();
+
+            closeSoftKeyboard(view);
+
+        } else {
+
+            userInput.setError("This word field is currently blank.");
+
+        }
+
+    }
+
+    // Close the soft keyboard when user is done using it
+    public void closeSoftKeyboard(View view) {
+
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        try {
+
+            if (inputMethodManager != null) {
+
+                inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+            }
+
+        } catch (NullPointerException error) {
+
+            error.printStackTrace();
+
+        }
+
+    }
+
     @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
             case R.id.submit_button:
 
-                String userWord = userInput.getText().toString();
-
-                if (userWord.length() > 0) {
-
-                    int value;
-
-                    boolean result = CheckPalindrome.reverseCheckWord(userWord);
-
-                    if (result) {
-
-                        value = 1;
-
-                    } else {
-
-                        value = 0;
-
-                    }
-
-                    // Add the new word and it's result value into the database
-                    addNewWord(userWord, value);
-
-                    // Refresh the Cursor with new value to update the recyclerview list
-                    mAdapter.swapCursor(getAllWordsList());
-                    wordRecyclerView.smoothScrollToPosition(getAllWordsList().getCount());
-
-                    // Show user the result
-                    resultText.setText(new StringBuilder().append(userWord).append(" ").append(Answer.result(MainActivity.this, result)).toString());
-
-                    // Clear the UI such as edittext
-                    userInput.getText().clear();
-
-                } else {
-
-                    userInput.setError("This word field is currently blank.");
-
-                }
+                checkThisWord(view);
 
                 break;
 
@@ -171,4 +206,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public boolean onEditorAction(TextView textView, int action, KeyEvent keyEvent) {
+
+        if (action == EditorInfo.IME_ACTION_DONE) {
+
+            checkThisWord(textView);
+
+            return true;
+
+        }
+
+        return false;
+
+    }
 }
