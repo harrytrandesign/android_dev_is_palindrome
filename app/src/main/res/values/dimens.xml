@@ -14,7 +14,7 @@
     <dimen name="button_image_icon">48dp</dimen>
 
     <!-- Font sizes -->
-    <dimen name="small_text">10sp</dimen>
+    <dimen name="small_text">12sp</dimen>
     <dimen name="list_text_size">16sp</dimen>
     <dimen name="larger_header_size">24sp</dimen>
 
