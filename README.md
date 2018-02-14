@@ -1,4 +1,4 @@
-![alt text][screenone] ![alt text][screentwo]
+![alt text][screenthree] ![alt text][screenfour]
 
 This is an Android application built around the concept of allowing a user to check whether a given string is a palindrome.
 
@@ -16,6 +16,11 @@ Feedback and comments are welcomed.
 
 Harry Tran
 
+Old Images
+
+![alt text][screenone] ![alt text][screentwo]
 
 [screenone]: https://i.imgur.com/nkNG9kp.png "First Screenshot"
 [screentwo]: https://i.imgur.com/dQVFrT3.png "Second Screenshot"
+[screenthree]: https://i.imgur.com/5tsE4Oq.png "V2 Screenshot One"
+[screenfour]: https://i.imgur.com/qRk3FZq.png "V2 Screenshot Two"
